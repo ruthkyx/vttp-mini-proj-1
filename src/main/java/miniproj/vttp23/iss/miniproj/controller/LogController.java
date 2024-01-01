@@ -46,12 +46,12 @@ public class LogController {
 
     // @RequestMapping(value="/", method= RequestMethod.GET, produces= "application/json")
     @GetMapping("/all")
-    public List<Log> getAllLogs(Date date, String text) {
-        List<Log> entries = new ArrayList<>();
-        Log entry = new Log(date, text);
-        entries.add(entry);
+    public List<Log> getAllLogs() {
+        // List<Log> entries = new ArrayList<>();
+        // Log entry = new Log(date, text);
+        // entries.add(entry);
 
-        return entries;
+        return appSvc.getAllLogs();
     }
 
     // GET verse https://ajith-holy-bible.p.rapidapi.com/GetVerseOfaChapter?Book=Luke&chapter=1&Verse=1

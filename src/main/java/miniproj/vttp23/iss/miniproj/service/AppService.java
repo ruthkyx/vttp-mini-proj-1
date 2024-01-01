@@ -1,7 +1,10 @@
 package miniproj.vttp23.iss.miniproj.service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import miniproj.vttp23.iss.miniproj.model.Log;
+import miniproj.vttp23.iss.miniproj.repo.AppRepo;
 
 
 @Service
@@ -20,6 +24,9 @@ public class AppService {
     private String apiKey;
 
     private static final String API_URL = "https://ajith-holy-bible.p.rapidapi.com/GetVerseOfaChapter";
+
+    @Autowired
+    private AppRepo appRepo;
 
     public String getVerse(String book, String chapter, String verse) {
 
@@ -43,9 +50,18 @@ public class AppService {
 
     }
 
+    // GET specific log
     public Log getLogByDate(Date date) {
         Log log = new Log();
         // retrieve log from database from Repo class 
         return log;
     }
+
+    // GET all logs
+    public List<Log> getAllLogs () {
+        List<Log> all = new ArrayList<>();
+
+        return all;
+    }
+
 }
