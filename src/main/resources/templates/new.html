@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Entry</title>
+</head>
+<body>
+    <h1>new entry here!!</h1>
+    <div>
+        <!-- get verse here -->
+        <form id="bible-form">
+            <label for="chapter">Chapter:</label>
+            <select id="chapter" name="chapter" required></select>
+            <br>
+            <label for="book">Book:</label>
+            <select id="book" name="book" required></select>
+            <br>
+            <label for="verse">Verse:</label>
+            <select id="verse" name="verse"></select>
+            <br>
+            <button type="submit">Find Verse</button>
+        </form>
+    <div>
+        <!-- POST new log here -->
+        <div>
+            <form action="/new">
+                <div>
+                    <label for="date">Date:</label>
+                    <input type="date">
+                </div>
+                <div>
+                    <label for="notes">Notes:</label>
+                    <textarea name="notes" id="notes" cols="30" rows="7"></textarea>
+                </div>
+                <div>
+                    <button type="submit">save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign up for a new account</h1>
+    <div>
+        <form data-th-action="@{/newUser}" method="POST" data-th-object="${User}">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password">
+            </div>
+            <br>
+            <div>
+                <button>Done!</button>
+            </div>
+        </form>
+        <a href="/login">back to login</a>
+    </div>
+</body>
+</html>

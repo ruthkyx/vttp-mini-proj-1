@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>hello <span data-th-text="${username}"></span>, whatchu wna do tdy?</h1>
+    <div>
+        <!-- get all logs -->
+        <button action="/all"> all logs</button>
+    </div>
+    <div>
+        <!-- redirect to new log -->
+        <button action="/new">new log</button>
+    </div>
+</body>
+</html>
