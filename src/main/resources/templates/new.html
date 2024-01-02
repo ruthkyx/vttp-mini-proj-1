@@ -9,7 +9,7 @@
     <h1>new entry here!!</h1>
     <div>
         <!-- get verse here -->
-        <form id="bible-form">
+        <form id="bible-form" action="/GetVerseOfaChapter">
             <label for="chapter">Chapter:</label>
             <select id="chapter" name="chapter" required></select>
             <br>
@@ -24,7 +24,7 @@
     <div>
         <!-- POST new log here -->
         <div>
-            <form action="/new">
+            <form action="/log">
                 <div>
                     <label for="date">Date:</label>
                     <input type="date">

@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>saved entries</h1>
-    
+    <table>
+        <tr>
+            <th>Date:</th>
+            <th>Text:</th>
+        </tr>
+        <tr th:each="log: ${logs}">
+            <td th:text="${log.date}"></td>
+            <td th:text="${log.text}"></td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import miniproj.vttp23.iss.miniproj.model.Log;
@@ -59,9 +60,13 @@ public class AppService {
 
     // GET all logs
     public List<Log> getAllLogs () {
-        List<Log> all = new ArrayList<>();
 
-        return all;
+        return appRepo.getLog();
+    }
+
+    // save log
+    public void saveLog() {
+
     }
 
 }
