@@ -22,6 +22,10 @@ public class UserController {
     @Autowired
     private AppService appSvc;
 
+    public String landingPage() {
+        return "login";
+    }
+
     // GET user data, if dont exist, ask them to sign up
     @GetMapping("/login")
     public String getLogin(Model model) {

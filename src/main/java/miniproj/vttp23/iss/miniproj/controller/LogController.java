@@ -38,7 +38,7 @@ public class LogController {
     }
 
     @GetMapping("/all/{date}")
-    public Log getLog(@PathVariable Date date) {
+    public Log getLog(@PathVariable String date) {
         // logic to get log by date
 
         return appSvc.getLogByDate(date);

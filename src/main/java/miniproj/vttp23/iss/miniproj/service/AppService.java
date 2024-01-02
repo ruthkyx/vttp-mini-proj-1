@@ -1,7 +1,5 @@
 package miniproj.vttp23.iss.miniproj.service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import miniproj.vttp23.iss.miniproj.model.Log;
@@ -57,34 +54,32 @@ public class AppService {
     }
 
     // GET specific log
-    public Log getLogByDate(Date date) {
-        Log log = new Log();
+    public Log getLogByDate(String date) {
         // retrieve log from database from Repo class 
-        return log;
+        return appRepo.logDate(date);
     }
 
     // GET all logs
     public List<Log> getAllLogs () {
-
-        return appRepo.getLog();
+        return appRepo.getLogs();
     }
 
     // save log
-    public void saveLog() {
-
+    public void saveLog(String date, String text) {
+        appRepo.savelog(date, text);
     }
 
     // check if user exists in the database
     public boolean hasUser(String username) {
-        return false;
+        return appRepo.hasUser(username);
     }
 
     public User getUser(String username) {
-        return null;
+        return appRepo.getUser(username);
     }
 
     public void addUser(User newUser) {
-
+        appRepo.saveUser(newUser);
     }
 
 }
