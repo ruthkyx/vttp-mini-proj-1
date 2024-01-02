@@ -60,13 +60,13 @@ public class AppService {
     }
 
     // GET all logs
-    public List<Log> getAllLogs () {
+    public List<String> getAllLogs () {
         return appRepo.getAllLogs();
     }
 
     // save log
-    public void saveLog(String date, String text) {
-        appRepo.savelog(date, text);
+    public void saveLog(String username, String date, String text) {
+        appRepo.savelog(username, date, text);
     }
 
     // check if user exists in the database

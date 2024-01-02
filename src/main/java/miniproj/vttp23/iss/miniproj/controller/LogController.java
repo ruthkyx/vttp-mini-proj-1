@@ -47,7 +47,7 @@ public class LogController {
     // @RequestMapping(value="/", method= RequestMethod.GET, produces= "application/json")
     @GetMapping("/all")
     public String getAllLogs(Model model) {
-        List<Log> logs = appSvc.getAllLogs();
+        List<String> logs = appSvc.getAllLogs();
         model.addAttribute("logs", logs);
 
         return "all";

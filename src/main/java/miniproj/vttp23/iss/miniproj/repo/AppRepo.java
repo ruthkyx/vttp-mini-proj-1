@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -25,27 +26,28 @@ public class AppRepo {
     private static String key = "users";
 
     // save log as JSON
-    public void savelog(String date, String text) {
-        template.opsForList().leftPush(date, text);
-
+    public void savelog(String username, String date, String text) {
+        template.opsForHash().put(username, date, text);
     }
 
     // get from redis database 
-    public List<Log> getAllLogs() {
+    public List<String> getAllLogs() {
 
         return template.opsForList().range("allLogs", 0, -1);
     }
 
     // get specific log by date 
     public Log logDate(String date) {
+        ListOperations<String, String> listops = template.opsForList();
+        List<String> logs = listops.range(key, 0, -1);
 
-        return ;
+        return null;
     }
 
     // check if user exists in database 
     public boolean hasUser(String hashKey) {
         // hashkey: username, hash value: password
-        return template.opsForList().hasKey(key, hashKey);
+        return template.opsForHash().hasKey(key, hashKey);
     }
 
     // saving user data
@@ -60,7 +62,7 @@ public class AppRepo {
 
     // retrieving user data
     public User getUser(String hashKey) {
-        String user = template.opsForHash().get(key, hashKey);
+        String user = (String) template.opsForHash().get(key, hashKey);
         JsonReader jsonReader = Json.createReader(new StringReader(user));
         JsonObject jsonObject = jsonReader.readObject();
         String username = jsonObject.getString("username");
