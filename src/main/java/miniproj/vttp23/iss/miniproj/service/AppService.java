@@ -61,7 +61,7 @@ public class AppService {
 
     // GET all logs
     public List<Log> getAllLogs () {
-        return appRepo.getLogs();
+        return appRepo.getAllLogs();
     }
 
     // save log

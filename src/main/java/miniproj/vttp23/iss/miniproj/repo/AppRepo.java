@@ -21,6 +21,9 @@ public class AppRepo {
     @Autowired 
     private RedisTemplate<String, String> template;
 
+    // stores user info under "users"
+    private static String key = "users";
+
     // save log as JSON
     public void savelog(String date, String text) {
         template.opsForList().leftPush(date, text);
@@ -28,12 +31,12 @@ public class AppRepo {
     }
 
     // get from redis database 
-    public List<Log> getLogs() {
+    public List<Log> getAllLogs() {
 
-        return null;
+        return template.opsForList().range("allLogs", 0, -1);
     }
 
-    // get log by date 
+    // get specific log by date 
     public Log logDate(String date) {
 
         return ;
@@ -48,8 +51,8 @@ public class AppRepo {
     // saving user data
     public void saveUser(User user) {
         JsonObject obj = Json.createObjectBuilder()
-            .add("username", username)
-            .add("password", password)
+            .add("username", user.getUsername())
+            .add("password", user.getPassword())
             .build();
 
         template.opsForHash().put(key, user.getUsername(), obj.toString());

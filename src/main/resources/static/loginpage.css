@@ -1,0 +1,12 @@
+login {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
