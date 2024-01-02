@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import miniproj.vttp23.iss.miniproj.model.Log;
+import miniproj.vttp23.iss.miniproj.model.User;
 import miniproj.vttp23.iss.miniproj.repo.AppRepo;
 
 
@@ -70,6 +71,19 @@ public class AppService {
 
     // save log
     public void saveLog() {
+
+    }
+
+    // check if user exists in the database
+    public boolean hasUser(String username) {
+        return false;
+    }
+
+    public User getUser(String username) {
+        return null;
+    }
+
+    public void addUser(User newUser) {
 
     }
 
