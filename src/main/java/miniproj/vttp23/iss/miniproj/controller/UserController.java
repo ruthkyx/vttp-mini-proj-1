@@ -22,9 +22,9 @@ public class UserController {
     }
 
     // GET user data, if dont exist, ask them to sign up
-    @GetMapping({"/", "/login"})
+    @GetMapping("/login")
     public String login() {
-
         return "login";
     }
+    
 }

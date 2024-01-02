@@ -8,18 +8,22 @@
 <body>
     <h1>Sign up for a new account</h1>
     <div>
-        <form data-th-action="@{/newUser}" method="POST" data-th-object="${User}">
+        <form th:action="@{/newUser}" th:method="POST" th:object="${User}">
             <div>
                 <label for="username">Username:</label>
-                <input type="text">
+                <input type="text" id="username" placeholder="username" th:field="*{username}">
             </div>
+            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert alert-danger"></div>
+
             <div>
                 <label for="password">Password:</label>
-                <input type="password">
+                <input type="password"id="password" placeholder="password" th:field="*{password}">
             </div>
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger"></div>
+
             <br>
             <div>
-                <button>Done!</button>
+                <button type="submit">Done!</button>
             </div>
         </form>
         <a href="/login">back to login</a>

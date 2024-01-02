@@ -8,14 +8,18 @@
 <body>
     <h1>Sundayyy</h1>
     <div class="login">
-        <form action="/login" method="GET">
+        <!-- error message for if authentication fails -->
+        <div th:if="${param.error}">
+            <p style="color:red;"> Invalid username/password</p>
+        </div>
+        <form th:action="@{/login}" th:method="POST" th:object="${User}">
             <div>
                 <label for="username">Username:</label>
-                <input type="text">
+                <input type="text" id="username" name="username" placeholder="username" th:field="*{userName}" required>
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password">
+                <input type="password" id="password" name="password" placeholder="password" th:field="*{password}" required>
             </div>
             <div>
                 <button type="submit">Login</button>

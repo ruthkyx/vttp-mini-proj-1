@@ -29,7 +29,7 @@ public class AppService {
     @Autowired
     private AppRepo appRepo;
 
-    public String getVerse(String book, String chapter, String verse) {
+    public ResponseEntity<String> getVerse(String book, String chapter, String verse) {
 
         // String url = UriComponentsBuilder
         //     .fromUriString("https://ajith-holy-bible.p.rapidapi.com/GetVerseOfaChapter")
@@ -45,9 +45,13 @@ public class AppService {
         header.set("apiKey", apiKey);
 
         HttpEntity<String> entity = new HttpEntity<>(header);
-        ResponseEntity<String> response = restTemplate.exchange(API_URL + "?book=" + book + "&chapter=" + chapter + "&verse=" + verse, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(
+            API_URL + "?book=" + book + "&chapter=" + chapter + "&verse=" + verse, 
+            HttpMethod.GET, 
+            entity, 
+            String.class);
         
-        return response.getBody();
+        return ResponseEntity.ok(response.getBody());
 
     }
 

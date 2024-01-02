@@ -55,7 +55,7 @@ public class LogController {
 
     // GET verse https://ajith-holy-bible.p.rapidapi.com/GetVerseOfaChapter?Book=Luke&chapter=1&Verse=1
     @GetMapping("/GetVerseOfaChapter")
-    public String getVerse(@RequestParam String book, @RequestParam int chapter, @RequestParam int verse, Model model) {
+    public ResponseEntity<String> getVerse(@RequestParam String book, @RequestParam int chapter, @RequestParam int verse, Model model) {
         // model.addAttribute();
 
         return appSvc.getVerse(book, String.valueOf(chapter), String.valueOf(verse));

@@ -12,11 +12,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-public class AppConfig {
+public class RedisConfig {
         // for redis ops 
 
     // create an instance of logger (mainly for debugging)
-    private Logger logger = Logger.getLogger(AppConfig.class.getName());
+    private Logger logger = Logger.getLogger(RedisConfig.class.getName());
 
     @Value("${spring.redis.host}")
     private String redisHost;
